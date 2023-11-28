@@ -1,5 +1,10 @@
+import { useState } from "react";
+
 export const TextBox = (props) => {
-    console.log(props);
+
+    // creating the state
+    //const [textBoxValue,setValue] = useState('Kiran');
+   // console.log(props);
     return (
         <div class="row mb-3">
             <label for={props.config.id}
@@ -8,7 +13,13 @@ export const TextBox = (props) => {
                 <input type={props.config.type}
                     name={props.config.name}
                     class="form-control"
-                    id={props.config.id} />
+                    id={props.config.id}
+                   
+                    onChange={e=>{
+                        //setValue(e.target.value)
+                        props.config.onChange(e);
+                    }} />
+                    
             </div>
         </div>
     )

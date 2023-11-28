@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { TextBox } from "../components/TextBox"
 
 export const Register = () => {
@@ -5,24 +6,35 @@ export const Register = () => {
     //labels
     // id
     // name
+    const [register,setRegister] = useState({});
+  
+    const handleChange =(e)=>{
+        let latestInfo = register;
+        latestInfo[e.target.name] =e.target.value;
+        setRegister({...latestInfo});
+    };
+
     const registerConfig = {
         Email: {
             label: "Email",
             id: "Email",
             name: "Email",
-            type: "email"
+            type: "email",
+            onChange:handleChange
         },
         UserName: {
             label: "User Name",
             id: "UserName",
             name: "UserName",
-            type: "text"
+            type: "text",
+            onChange:handleChange
         },
         Password: {
             label: "Password",
             id: "Password",
             name: "Password",
-            type: "password"
+            type: "password",
+            onChange:handleChange
         },
     }
 
@@ -33,6 +45,7 @@ export const Register = () => {
                 <TextBox config={registerConfig.UserName} />
                 <TextBox config={registerConfig.Password} />
                 <button type="submit" class="btn btn-primary">Sign in</button>
+                {JSON.stringify(register)}
             </form>
         </div>
     )

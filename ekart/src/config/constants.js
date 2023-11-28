@@ -23,4 +23,13 @@ export const NavBarItems = [
         displayName:"Logout",
         link:"/logout"
     },
-]
+];
+export const countryList = [{
+    name:"India",
+    value:"IN"
+},
+{
+    name:"United States",
+    value:"USA"
+}];
+export const ProductsApi ='https://dummyjson.com/products';

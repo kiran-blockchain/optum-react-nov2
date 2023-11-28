@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { TextBox } from "../components/TextBox"
+import { countryList } from "../config/constants";
+import { Dropdown } from "../components/Dropdown";
 
 export const Register = () => {
     //type
@@ -20,6 +22,7 @@ export const Register = () => {
             id: "Email",
             name: "Email",
             type: "email",
+            default:"test@gmail.com",
             onChange:handleChange
         },
         UserName: {
@@ -27,6 +30,7 @@ export const Register = () => {
             id: "UserName",
             name: "UserName",
             type: "text",
+            default:"John",
             onChange:handleChange
         },
         Password: {
@@ -34,8 +38,17 @@ export const Register = () => {
             id: "Password",
             name: "Password",
             type: "password",
+            default:"Test@123",
             onChange:handleChange
         },
+        Country:{
+            label: "Country",
+            id: "Country",
+            name: "Country",
+            list:countryList,
+            onChange:handleChange,
+            default:"USA"
+        }
     }
 
     return (
@@ -44,6 +57,7 @@ export const Register = () => {
                 <TextBox config={registerConfig.Email} />
                 <TextBox config={registerConfig.UserName} />
                 <TextBox config={registerConfig.Password} />
+                <Dropdown config={registerConfig.Country}/>
                 <button type="submit" class="btn btn-primary">Sign in</button>
                 {JSON.stringify(register)}
             </form>

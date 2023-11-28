@@ -1,4 +1,5 @@
 
+import { Products } from './Pages/Product';
 import { Register } from './Pages/Register';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
@@ -16,7 +17,8 @@ function App() {
     <div className='container-fluid'>
       
       <Header/>
-      <Register/>
+      <Products/>
+      {/* <Register/> */}
       <Footer/>
     </div>
   );

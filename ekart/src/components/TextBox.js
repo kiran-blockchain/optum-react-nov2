@@ -3,7 +3,7 @@ import { useState } from "react";
 export const TextBox = (props) => {
 
     // creating the state
-    //const [textBoxValue,setValue] = useState('Kiran');
+    const [textBoxValue,setValue] = useState(props.config.default);
    // console.log(props);
     return (
         <div class="row mb-3">
@@ -14,9 +14,10 @@ export const TextBox = (props) => {
                     name={props.config.name}
                     class="form-control"
                     id={props.config.id}
-                   
+                    value={textBoxValue}            
                     onChange={e=>{
-                        //setValue(e.target.value)
+                        
+                        setValue(e.target.value)
                         props.config.onChange(e);
                     }} />
                     
